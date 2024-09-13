@@ -1,0 +1,66 @@
+---
+import { cx, css, cva } from '../../../styled-system/css'
+import { grid, gridItem } from '../../../styled-system/patterns'
+
+const cardSectionBoxStyles = cva({
+	base: {
+		display: 'flex',
+        position: 'relative',
+		width: { 
+			xsm: '100%', 
+			md: '33.333%' 
+		}, 
+		height: { 
+			xsm: '40%',
+			sm: '40%',
+			md: '100%' 
+		} 
+	}
+});
+---
+
+<div id='cardSection_box' class={cardSectionBoxStyles()}>
+
+    <div id="carSection_background_box" class={css({ display: 'flex', position: 'absolute', width: '100%', height: '100%' })}>
+        <picture>
+            <source 
+                media="(min-width: 1040px)" 
+                srcset="/images/bg-main-desktop.png"
+            >
+            <source 
+                media="(min-width: 640px)" 
+                srcset="/images/bg-main-desktop.png"
+            >
+            <source 
+                media="(min-width: 340px)" 
+                srcset="/images/bg-main-mobile.png"
+            >
+            <img 
+                src="/images/bg-main-mobile.png" 
+                alt="card background" 
+                style="width:auto;"
+            >
+        </picture>
+    </div>
+
+    <div class={css({ display: 'flex', position: 'absolute', zIndex: 1, width: '260px', height: '150px', top: '20px', right: '20px' })}>
+        <img 
+            src="/images/bg-card-back.png" 
+            alt="img_card__backside"
+        >
+    </div>
+    <div class={css({ display: 'flex', position: 'absolute', zIndex: 2, width: '260px', height: '150px', bottom: '-10px', left: '20px' })}>
+        <div class={css({ position: 'relative', width: '100%', height: '100%' })}>
+            <img 
+                src="/images/bg-card-front.png" 
+                alt="img_card__backside"
+                class={css({ display: 'flex', position: 'absolute', zIndex: 0, top: '0', left: '0' })}
+            >
+            <div id="card_front_details" class={ cx( grid({ columns: 12 }), css({ display: 'flex', position: 'absolute', zIndex: 1, top: '10px', left: '10px', width: '90%', height: '78%' }) )}>
+                <span class={ cx( gridItem({}), css({ fontFamily: 'spacegrotesk_variable', color: 'white' }) ) }>0000 0000 0000 0000</span>
+                <span class={ cx( gridItem({}), css({ fontFamily: 'spacegrotesk_variable', color: 'white' }) )}>JANE APPLESEED</span>
+            </div>
+        </div>
+    </div>
+
+</div>

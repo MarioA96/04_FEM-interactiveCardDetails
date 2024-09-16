@@ -1,0 +1,50 @@
+---
+import { cardFormBoxStyles } from "../../styles/isles/index/cardFormBoxStyles";
+import { formBoxStyles } from "../../styles/isles/index/formBoxStyles";
+
+import FormCardLayout from "../../isles/index/form.astro";
+import { grid, gridItem } from "../../../styled-system/patterns";
+import { css, cx } from "../../../styled-system/css";
+---
+
+<div id='cardForm_box' class={cardFormBoxStyles()}>
+    <div id="form_box" class={formBoxStyles()}>
+        
+        <FormCardLayout>
+
+            <div id="fcardholder_name_box" class={gridItem()}>
+                <label for="fcardholder_name">CARDHOLDER NAME</label><br>
+                <input type="text" id="fcardholder_name" name="fcardholder_name" placeholder="e.g. Jane Appleseed" minlength="2" maxlength="48" required>
+            </div>
+            
+            <div id="fcard_number_box" class={gridItem()}>
+                <label for="fcard_number">CARD NUMBER</label><br>
+                <input type="text" id="fcard_number" name="fcardholder_name" placeholder="e.g. Jane 1234 5678 9123 0000" minlength="16" maxlength="16" required>
+            </div>
+            
+            <div id="fcard_expDate_cvc_box" class={cx( grid({ columns: 12 }), gridItem() )}>
+                <fieldset id="fcard_cardDate_expDate_box" class={cx( grid({ columns: 12 }), gridItem({ colSpan: 6 }) )}>
+                    <legend>EXP. DATE (MM/YY)</legend>
+                    <div id="fcard_cardDate__MM_box" class={gridItem({ colSpan: 6 })}>
+                        <input type="number" id="fcard_expDate__MM" name="fcard_expDate" placeholder="MM" min="01" max="31" required>
+                    </div>
+                    <div id="fcard_cardDate__YY_box" class={gridItem({ colSpan: 6 }) }>
+                        <input type="number" id="fcard_expDate__YY" name="fcard_expDate" placeholder="YY" minlength="00" maxlength="99" required>
+                    </div>
+                </fieldset>
+                <fieldset id="fcard_card_cvc_box" class={cx( gridItem({ colSpan: 6 }), css({ marginTop: '-3px' }) )}>
+                    <label for="fcard_cvc">CVC</label>
+                    <input type="number" id="fcard_cvc" name="fcard_cvc" placeholder="e.g. 123" min="000" max="999" required>
+                </fieldset>
+            </div>
+
+            <button id="fcard_submitButton">Confirm</button>
+
+        </FormCardLayout>
+
+    </div>
+</div>
+
+<script>
+
+</script>

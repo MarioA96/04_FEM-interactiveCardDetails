@@ -3,13 +3,34 @@ import IndexLayout from '../layouts/index/index.layout.astro'
 
 import CardSectionBox from '../isles/index/cardSection.astro';
 import CardFormBox from '../isles/index/cardFormBox.astro';
+import type { CardContent } from '../interfaces/CardContent';
 
+const initialStateContent : CardContent = {
+    backgrounds: {
+        background_1040: '/images/bg-main-desktop.png',
+        background_640: '/images/bg-main-desktop.png',
+        background_340: '/images/bg-main-mobile.png',
+        background_regular: '/images/bg-main-mobile.png'
+    },
+    backsideCard: {
+        media: '/images/bg-card-back.png',
+        value: '000'
+    },
+    frontsideCard: {
+        cardNumber: '0000 0000 0000 0000',
+        holderName: 'JANE APPLESEED',
+        expDate: {
+            month: '00',
+            year: '00'
+        }
+    }
+}
 ---
 
 <IndexLayout>
 
-	<CardSectionBox />
+	<CardSectionBox initialState={initialStateContent}/>
 
-	<CardFormBox />
+	<CardFormBox initialState={initialStateContent}/>
 
 </IndexLayout>

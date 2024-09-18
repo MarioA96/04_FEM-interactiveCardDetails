@@ -1,0 +1,36 @@
+---
+import { css } from "../../../../styled-system/css";
+
+type CardBackgroundProps = {
+    backgrounds: {
+        background_1040: string,
+        background_640: string,
+        background_340: string,
+        background_regular: string
+    }
+}
+
+const { background_1040, background_640, background_340, background_regular }: CardBackgroundProps['backgrounds'] = Astro.props.backgrounds;
+---
+
+<div id="carSection_background_box" class={css({ display: 'flex', position: 'absolute', width: '100%', height: '100%' })}>
+    <picture>
+        <source 
+            media="(min-width: 1040px)" 
+            srcset={background_1040}
+        >
+        <source 
+            media="(min-width: 640px)" 
+            srcset={background_640}
+        >
+        <source 
+            media="(min-width: 340px)" 
+            srcset={background_340}
+        >
+        <img 
+            src={background_regular} 
+            alt="card background" 
+            style="width:auto;"
+        >
+    </picture>
+</div>

@@ -1,6 +1,11 @@
 ---
-import { cx, css, cva } from '../../../styled-system/css'
-import { container, grid, gridItem } from '../../../styled-system/patterns'
+import { cva } from '../../../styled-system/css'
+
+import CardBackground from './sections/cardBackground.astro';
+import CardBackside from './sections/cardBackside.astro';
+import CardFrontside from './sections/cardFrontside.astro';
+
+const { initialState } = Astro.props;
 
 const cardSectionBoxStyles = cva({
 	base: {
@@ -17,67 +22,15 @@ const cardSectionBoxStyles = cva({
 		} 
 	}
 });
+
 ---
 
 <div id='cardSection_box' class={cardSectionBoxStyles()}>
 
-    <div id="carSection_background_box" class={css({ display: 'flex', position: 'absolute', width: '100%', height: '100%' })}>
-        <picture>
-            <source 
-                media="(min-width: 1040px)" 
-                srcset="/images/bg-main-desktop.png"
-            >
-            <source 
-                media="(min-width: 640px)" 
-                srcset="/images/bg-main-desktop.png"
-            >
-            <source 
-                media="(min-width: 340px)" 
-                srcset="/images/bg-main-mobile.png"
-            >
-            <img 
-                src="/images/bg-main-mobile.png" 
-                alt="card background" 
-                style="width:auto;"
-            >
-        </picture>
-    </div>
+    <CardBackground backgrounds={initialState.backgrounds}/>
 
-    <div id="card_backside_box" class={css({ display: 'flex', position: 'absolute', zIndex: 1, width: '260px', height: '150px', top: '20px', right: '20px' })}>
-        <div id="card_backside_container" class={css({ position: 'relative', width: '100%', height: '100%' })}>
-            <img 
-                src="/images/bg-card-back.png" 
-                alt="img_card__backside"
-                class={css({ display: 'flex', position: 'absolute', zIndex: 0, top: '0', left: '0' })}
-            >
-            <div id="card_backside_details" class={css({ display: 'flex', position: 'absolute', zIndex: 1, top: '57px', right: '30px', width: 'fit-content', height: 'fit-content' })}>
-                <div id="card_backside_details__csv" class={css({ width: '100%', height: '100%' })}>000</div>
-            </div>
-        </div>
-    </div>
-    <div id="card_front_box" class={css({ display: 'flex', position: 'absolute', zIndex: 2, width: '260px', height: '150px', bottom: '-10px', left: '20px' })}>
-        <div id="card_front_container" class={css({ position: 'relative', width: '100%', height: '100%' })}>
-            <img 
-                src="/images/bg-card-front.png" 
-                alt="img_card__backside"
-                class={css({ display: 'flex', position: 'absolute', zIndex: 0, top: '0', left: '0' })}
-            >
-            <div id="card_front_details_box" class={css({ display: 'flex', position: 'absolute', zIndex: 1, top: '10px', left: '10px', width: '90%', height: '78%' })}>
-                <div id="card_front_details_container" class={cx( grid({rowGap: '5'}), container({}) )}>
-                    <div id="card_front_decoration_box" class={cx( gridItem({}), grid({columns: 12}) )}>
-                        <div id="card_front_decoration__bigCircle" class={ cx( gridItem({colSpan: 2}), css({ width: '25px', height: '25px', borderRadius: '100%', backgroundColor: 'white' }) ) }></div>
-                        <div id="card_front_decoration__smallCircle" class={ cx( gridItem({colSpan: 2}), css({ marginTop: '7px', width: '12px', height: '12px', border: '1px solid white', borderRadius: '50%'}) ) }></div>
-                    </div>
-                    <div id="card_front_details__cardNumber" class={cx( gridItem({}), grid({columns: 12}) )}>
-                        <span class={ cx( gridItem({colSpan: 12}), css({ fontFamily: 'spacegrotesk_variable', fontWeight: '500', fontSize: '16px', color: 'white' }) ) }>0000 0000 0000 0000</span>
-                    </div>
-                    <div id="card_front_details__holderName__expDate" class={cx( gridItem({}), grid({columns: 12}) )}>
-                        <span class={ cx( gridItem({colSpan: 10}), css({ fontFamily: 'spacegrote1sk_variable', fontWeight: '700', fontSize: '12px', color: 'white' }) )}>JANE APPLESEED</span>
-                        <span class={ cx( gridItem({colSpan: 2}), css({ fontFamily: 'spacegrote1sk_variable', fontWeight: '700', fontSize: '12px', color: 'white' }) )}>00/00</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <CardBackside backsideCard={initialState.backsideCard}/>
+
+    <CardFrontside frontsideCard={initialState.frontsideCard}/>
 
 </div>

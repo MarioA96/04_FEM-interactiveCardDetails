@@ -5,7 +5,7 @@ import CardBackground from './sections/cardBackground.astro';
 import CardBackside from './sections/cardBackside.astro';
 import CardFrontside from './sections/cardFrontside.astro';
 
-const { initialState } = Astro.props;
+let { initialState } = Astro.props;
 
 const cardSectionBoxStyles = cva({
 	base: {

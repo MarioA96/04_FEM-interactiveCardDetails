@@ -5,7 +5,7 @@ import CardSectionBox from '../isles/index/cardSection.astro';
 import CardFormBox from '../isles/index/cardFormBox.astro';
 import type { CardContent } from '../interfaces/CardContent';
 
-const initialStateContent : CardContent = {
+let initialStateContent : CardContent = {
     backgrounds: {
         background_1040: '/images/bg-main-desktop.png',
         background_640: '/images/bg-main-desktop.png',
@@ -14,7 +14,7 @@ const initialStateContent : CardContent = {
     },
     backsideCard: {
         media: '/images/bg-card-back.png',
-        value: '000'
+        cvc: '000'
     },
     frontsideCard: {
         cardNumber: '0000 0000 0000 0000',

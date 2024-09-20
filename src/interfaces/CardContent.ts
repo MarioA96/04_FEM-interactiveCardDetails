@@ -13,7 +13,7 @@ export interface Background {
 
 export interface BacksideCard {
     media: string;
-    value: string;
+    cvc: string;
 }
 
 export interface FrontsideCard {

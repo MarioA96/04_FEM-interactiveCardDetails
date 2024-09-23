@@ -2,8 +2,6 @@
 import { cardFormBoxStyles } from "../../styles/isles/index/cardFormBoxStyles";
 import { formBoxStyles } from "../../styles/isles/index/formBoxStyles";
 
-import FormCardLayout from "../../isles/index/form.astro";
-
 import CardFormDetails from "./sections/components/CardFormDetails.svelte";
 
 import type { CardContent } from '../../interfaces/CardContent';
@@ -14,17 +12,11 @@ let { initialState }: { initialState: CardContent } = Astro.props as { initialSt
 <div id='cardForm_box' class={cardFormBoxStyles()}>
     <div id="form_box" class={formBoxStyles()}>
         
-        <FormCardLayout>
-
-            <CardFormDetails 
-                frontsideCardDetails={initialState.frontsideCard} 
-                backsideCardDetails={initialState.backsideCard} 
-                client:only
-            />
-
-            <button id="fcard_submitButton">Confirm</button>
-
-        </FormCardLayout>
+        <CardFormDetails 
+            frontsideCardDetails={initialState.frontsideCard} 
+            backsideCardDetails={initialState.backsideCard} 
+            client:only
+        />
 
     </div>
 </div>

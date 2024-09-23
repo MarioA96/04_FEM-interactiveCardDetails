@@ -1,12 +1,40 @@
 ---
-import { css } from "../../../../styled-system/css";
+import { cva, css } from "../../../../styled-system/css";
 import BacksideDetails from "./components/BacksideDetails.svelte";
 
 const { media, cvc }: { media: string, cvc: string } = Astro.props.backsideCard;
+
+const cardBacksideBoxStyles = cva({
+    base: {
+        display: 'flex',
+        position: 'absolute',
+        zIndex: 1,
+        width: {
+            xsm: '260px',
+            sm: '260px',
+            md: '380px'
+        },
+        height: {
+            xsm: '150px',
+            sm: '150px',
+            md: '180px'
+        },
+        top: {
+            xsm: '20px',
+            sm: '20px',
+            md: '340px'
+        },
+        right: {
+            xsm: '20px',
+            sm: '20%',
+            md: '-150px'
+        }
+    }
+});
 ---
 
 
-<div id="card_backside_box" class={css({ display: 'flex', position: 'absolute', zIndex: 1, width: '260px', height: '150px', top: '20px', right: '20px' })}>
+<div id="card_backside_box" class={ cardBacksideBoxStyles({}) }>
     
     <BacksideDetails 
         media={media} 

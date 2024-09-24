@@ -1,0 +1,33 @@
+---
+
+import { css } from '../../../styled-system/css';
+
+---
+
+<footer 
+    class={
+        css({ 
+            xsm: {
+                marginTop: 'auto',
+                height: 'fit-content',
+                width: '100%',
+                textAlign: 'center',
+                marginBottom: '1rem',
+                backgroundColor: 'white',
+                fontFamily: 'figtree_semibold'
+            },
+            lg: {
+                height: '25px',
+                width: 'fit-content',
+                position: 'absolute',
+                bottom: '0',
+                right: '180px',
+            }
+        })
+    }
+>
+    <div role="complementary">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" class={css({ color: 'blue' })}>Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/MarioA96" target="_blank" class={css({ color: 'blue' })}>MarioA96</a>.
+    </div>
+</footer>

@@ -3,8 +3,16 @@ import { cva } from "../../../../styled-system/css";
 
 export const formBoxStyles = cva({
 	base: {
-		width: '100%', 
-		height: '100%', 
+		width: {
+			xsm: '100%',
+			sm: '100%',
+			md: '50%'
+		}, 
+		height: {
+			xsm: '100%',
+			sm: '90%',
+			md: 'fit-content'
+		}, 
 		backgroundColor: 'white',
 		marginTop: '30px',
 		'& form': {
